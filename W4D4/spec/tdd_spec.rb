@@ -43,6 +43,9 @@ describe "Towers_of_Hanoi" do
         end
     end
 
+    describe "#[]" do
+        it "should accept an array containing a pair of indices in the form [row, column] representing a position"
+    end
 
 
 
