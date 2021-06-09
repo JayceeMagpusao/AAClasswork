@@ -87,4 +87,15 @@ VALUES
 INSERT INTO
     replies (question_id, user_id, reply_id, body)
 VALUES
+    (1, 1, NULL, "Reply 1"),
+    (2, 2, NULL, "Reply 2"),
+    (2, 2, 2, "This is how I make a joke"),
+    (1, 1, 1, "This is how I throw a football");
     
+INSERT INTO
+    question_likes (user_like, user_id, question_id)
+VALUES  
+    (true, 1, 1),
+    (false, 2, 2),
+    (true, 3, 3),
+    (false, 4, 4);
