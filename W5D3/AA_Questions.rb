@@ -1,5 +1,6 @@
 require 'sqlite3'
 require 'singleton'
+require 'byebug'
 
 class QuestionsDatabase < SQLite3::Database
   include Singleton
@@ -16,13 +17,13 @@ class Users
 
   def self.find_by_id(id)
     user = QuestionsDatabase.instance.execute(<<-SQL, id)
-      SELECT id
+      SELECT *
       FROM users
       WHERE id = ?
     SQL
     return nil unless user.length > 0 
 
-    Users.new(user.first)
+    user.map { |use| Users.new(use) }
   end
 
   def initialize(options)
@@ -30,6 +31,23 @@ class Users
     @fname = options['fname']
     @lname = options['lname']
   end
+
+  def self.find_by_name(fname, lname)
+    user = QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
+      SELECT *
+      FROM users
+      WHERE fname = ? AND lname = ?
+    SQL
+    return nil unless user.length > 0 
+
+    user.map { |use| Users.new(use) }
+  end
+
+  def authored_questions(id)
+    Questions.find_by_author_id(id)
+  end
+
+
 end
 
 class Questions
@@ -37,13 +55,13 @@ class Questions
 
   def self.find_by_id(id)
     question = QuestionsDatabase.instance.execute(<<-SQL, id)
-      SELECT id
+      SELECT *
       FROM questions
       WHERE id = ?
     SQL
     return nil unless question.length > 0 
 
-    Questions.new(question.first)
+    question.map { |quest| Questions.new(quest) }
   end
 
   def initialize(options)
@@ -52,6 +70,17 @@ class Questions
     @body = options['body']
     @author_id = options['author_id']
   end
+
+  def self.find_by_author_id(author_id)
+    question = QuestionsDatabase.instance.execute(<<-SQL, author_id)
+      SELECT *
+      FROM questions
+      WHERE author_id = ?
+    SQL
+    return nil unless question.length > 0 
+
+    question.map { |quest| Questions.new(quest) }
+  end
 end
 
 class QuestionsFollows
@@ -59,13 +88,13 @@ class QuestionsFollows
   
   def self.find_by_id(id)
     question_follow = QuestionsDatabase.instance.execute(<<-SQL, id)
-      SELECT id
+      SELECT *
       FROM questions_follows
       WHERE id = ?
     SQL
     return nil unless question_follow.length > 0 
 
-    QuestionsFollows.new(question_follow.first)
+    question_follow.map { |quest| QuestionsFollows.new(quest) }
   end
 
   def initialize(options)
@@ -80,13 +109,13 @@ class Replies
   
   def self.find_by_id(id)
     reply = QuestionsDatabase.instance.execute(<<-SQL, id)
-      SELECT id
+      SELECT *
       FROM replies
       WHERE id = ?
     SQL
     return nil unless reply.length > 0 
 
-    Replies.new(reply.first)
+    reply.map { |rep| Replies.new(rep) }
   end
 
   def initialize(options)
@@ -96,6 +125,28 @@ class Replies
     @reply_id = options['reply_id']
     @body = options['body']
   end
+
+  def self.find_by_user_id(user_id)
+    reply = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT *
+      FROM replies
+      WHERE user_id = ?
+    SQL
+    return nil unless reply.length > 0 
+
+    reply.map { |rep| Replies.new(rep) }
+  end
+
+  def self.find_by_question_id(question_id)
+    reply = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+      SELECT *
+      FROM replies
+      WHERE question_id = ?
+    SQL
+    return nil unless reply.length > 0 
+
+    reply.map { |rep| Replies.new(rep) }
+  end
 end
 
 class QuestionLikes
@@ -103,13 +154,13 @@ class QuestionLikes
   
   def self.find_by_id(id)
     question_like = QuestionsDatabase.instance.execute(<<-SQL, id)
-      SELECT id
+      SELECT *
       FROM question_likes
       WHERE id = ?
     SQL
     return nil unless question_like.length > 0 
 
-    QuestionLikes.new(question_like.first)
+    question_like.map { |like| QuestionLikes.new(like) }
   end
 
   def initialize(options)
