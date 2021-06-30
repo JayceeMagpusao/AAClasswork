@@ -1,0 +1,246 @@
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210622181433)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210622181433)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210622181433)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210622181433_create_users.rb:3
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "session_token" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210622181433_create_users.rb:3
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_session_token" ON "users" ("session_token")[0m
+  ↳ db/migrate/20210622181433_create_users.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20210622181433_create_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (5.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622181433"]]
+  ↳ bin/rails:9
+  [1m[35m (17.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (6.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-22 18:24:13.199950"], ["updated_at", "2021-06-22 18:24:13.199950"]]
+  ↳ bin/rails:9
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-06-22 16:21:21 -0700
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 18ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2021-06-22 16:21:27 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2021-06-22 16:22:11 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting keyword_end
+...s_password?(password) if user : nil
+...                              ^:
+  app/models/user.rb:36:in `'
+  app/controllers/users_controller.rb:12:in `new'
+
+Started POST "/__better_errors/3baef9ff2deef60f/variables" for ::1 at 2021-06-22 16:22:14 -0700
+Started GET "/users" for ::1 at 2021-06-22 16:23:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2021-06-22 16:27:26 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting keyword_end
+...s_password?(password) if user : nil
+...                              ^:
+  app/models/user.rb:36:in `'
+  app/controllers/users_controller.rb:12:in `new'
+
+Started POST "/__better_errors/450546f50d59d6af/variables" for ::1 at 2021-06-22 16:27:32 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:29:13 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 420ms (ActiveRecord: 12.0ms)
+
+
+
+NameError - uninitialized constant User::Securerandom:
+  app/models/user.rb:41:in `ensure_session_token'
+  app/controllers/users_controller.rb:12:in `new'
+
+Started POST "/__better_errors/67c58b9218b57277/variables" for ::1 at 2021-06-22 16:29:13 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:30:08 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant User::Securerandom:
+  app/models/user.rb:41:in `ensure_session_token'
+  app/controllers/users_controller.rb:12:in `new'
+
+Started POST "/__better_errors/283f69cc189f5453/variables" for ::1 at 2021-06-22 16:30:08 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:31:25 -0700
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 385204ms (Views: 385020.0ms | ActiveRecord: 18.8ms)
+
+
+Started GET "/" for ::1 at 2021-06-22 16:41:21 -0700
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jaycee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (4.8ms)
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-06-22 16:41:31 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Started GET "/users/new" for ::1 at 2021-06-22 16:41:40 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 63695ms (Views: 63537.5ms | ActiveRecord: 11.7ms)
+
+
+Completed 200 OK in 49131ms (Views: 49130.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-06-22 16:47:57 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"5y5GAuf5xwfVasbWFoeYNnyXl9oBAxdapjaTFun7zFQ3QDKzIrVl2SmXuMrhJpFNNkv7fVRib8zea8b7TJb7/w==", "user"=>{"email"=>"imamag@email.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `email' for #<UsersController:0x00007f308c1f9280>:
+  app/controllers/users_controller.rb:3:in `create'
+
+Started POST "/__better_errors/9c7daa4448327b94/variables" for ::1 at 2021-06-22 16:47:57 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:50:12 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:50:12 -0700
+Processing by UsersController#new as HTML
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29109ms (Views: 29107.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2335ms (Views: 2333.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-06-22 16:50:51 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"PUTaN9Wet1f+HAVP77xIdfVt/UJRxzc92lF3UWGMnRTtKq6GENIViQLhe1MYHUEOv7GR5QSmT6uiDCK8xOGqvw==", "user"=>{"email"=>"imamag@email.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1081ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `email' for #<UsersController:0x00007f307d758460>:
+  app/controllers/users_controller.rb:3:in `create'
+
+Started POST "/__better_errors/a83e689789f94de9/variables" for ::1 at 2021-06-22 16:50:55 -0700
+Started GET "/users/new" for ::1 at 2021-06-22 16:51:49 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 654ms (Views: 652.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-06-22 16:53:19 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"CSX1vyb5GufrRg5oO0Av6KVmGCTUyMfnbiPebhyxIaTZS4EO47W4ORe7cHTM4SaT77p0g4Gpv3EWfouDudwWDw==", "user"=>{"email"=>"imamag@email.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 385ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `email' for #<UsersController:0x00007f308c0ca170>:
+  app/controllers/users_controller.rb:3:in `create'
+
+Started POST "/__better_errors/0d5f5ca193eba3c7/variables" for ::1 at 2021-06-22 16:53:20 -0700
