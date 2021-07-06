@@ -1,3 +1,5 @@
+module.exports = MovingObject;
+
 function MovingObject(args){
   this.pos = args.pos;
   this.vel = args.vel;
@@ -5,13 +7,39 @@ function MovingObject(args){
   this.color = args.color;
 }
 
-module.exports = MovingObject;
+MovingObject.prototype.draw = function (ctx) {
 
-const mo = new MovingObject({
-  pos: [30, 30],
-  vel: [10, 10],
-  radius: 5,
-  color: "#00FF00"
-});
+  ctx.beginPath();
 
-console.log(mo)
+  ctx.arc(
+    this.pos[0], 
+    this.pos[1],
+    this.radius, 
+    0 ,
+    2 * Math.PI
+  );
+
+  ctx.fillStyle = this.color
+  ctx.fill();
+
+}
+
+MovingObject.prototype.move = function (ctx) {
+
+  let newPosition = []
+
+  newPosition.push(this.pos[0] + this.vel[0]);
+  newPosition.push(this.pos[1] + this.vel[1]);
+
+  this.pos = newPosition;
+
+  ctx.fillStyle = "red";
+  ctx.fill();
+}
+
+// const mo = new MovingObject({
+//   pos: [30, 30],
+//   vel: [100, 100],
+//   radius: 20,
+//   color: "#00FF00"
+// });
