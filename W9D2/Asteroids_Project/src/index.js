@@ -1,8 +1,8 @@
 const MovingObject = require("./moving_object.js");
+const Asteroid = require("./asteroid.js");
+const Game = require("./game.js");
 
 window.MovingObject = MovingObject;
-
-console.log("Tyreke Hill!!!")
 
 mo = new MovingObject({
   pos: [30, 30],
@@ -10,6 +10,21 @@ mo = new MovingObject({
   radius: 20,
   color: "#00FF00"
 });
+
+asteroid = new Asteroid({
+  pos: [100, 100],
+});
+
+game = new Game({
+  dim_X: document.body.clientWidth,
+  dim_Y: document.body.clientHeight,
+  NUM_ASTEROIDS: 8
+});
+
+game.addAsteroids();
+game.addAsteroids();
+game.addAsteroids();
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
   
@@ -19,7 +34,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   
   const ctx = canvas.getContext('2d')
 
+  game.draw(ctx);
   mo.draw(ctx);
+  asteroid.draw(ctx);
 });
 
 window.addEventListener('click', (event) => {
@@ -31,4 +48,5 @@ window.addEventListener('click', (event) => {
 
   mo.draw(ctx);
   mo.move(ctx);
+  game.moveObjects(ctx);
 })

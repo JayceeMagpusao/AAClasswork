@@ -17,6 +17,17 @@ function sum2(...args){
 // console.log(sum2(1, 2, 3, 4)) //=== 10;
 // console.log(sum2(1, 2, 3, 4, 5)) //=== 15;
 
+//need to use this ES5 style for the test
+Function.prototype.myBind = function(ctx){
+    let bindArgs = Array.from(arguments).slice(1);
+    let that = this;
+
+    return function(){
+      let callArgs = Array.from(arguments);
+      return that.apply(ctx, array.concat(array2));
+    }
+}
+
 Function.prototype.myBind = function(ctx, ...bindArgs) {
 	return (...callArgs) => {
 		return this.apply(ctx, bindArgs.concat(callArgs))
