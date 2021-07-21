@@ -1,19 +1,29 @@
 import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from "../actions/todo_actions"
 
 const initialState = {
-  1: {
-    id: 1,
-    title: "wash car",
-    body: "with soap",
-    done: false
+  todos: {
+    1: {
+      id: 1,
+      title: 'take a shower',
+      body: 'and be clean',
+      done: false
+    }
   },
-  2: {
-    id: 2,
-    title: "wash dog",
-    body: "with shampoo",
-    done: true
+  steps: {
+    1: { // this is the step with id = 1
+      id: 1,
+      title: 'walk to store',
+      done: false,
+      todo_id: 1
+    },
+    2: { // this is the step with id = 2
+      id: 2,
+      title: 'buy soap',
+      done: false,
+      todo_id: 1
+    }
   }
-};
+}
 
 const todosReducer = (oldState = initialState, action) => {
   Object.freeze(oldState);
