@@ -234,10 +234,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_todos_todo_list_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/todos/todo_list_container */ "./frontend/components/todos/todo_list_container.jsx");
+
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "BEST APP EVER"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "App"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Super Awesome TODO List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_todos_todo_list_container__WEBPACK_IMPORTED_MODULE_1__.default, null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -270,6 +274,63 @@ var Root = function Root(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);
+
+/***/ }),
+
+/***/ "./frontend/components/todos/todo_list.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/todos/todo_list.jsx ***!
+  \*************************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/frontend/components/todos/todo_list.jsx: Only one default export allowed per module. (3:0)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m () \u001b[33m=>\u001b[39m \u001b[33m<\u001b[39m\u001b[33mh3\u001b[39m\u001b[33m>\u001b[39m\u001b[33mTodo\u001b[39m \u001b[33mList\u001b[39m goes here\u001b[33m!\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh3\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[33mTodoList\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object._raise (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:788:17)\n    at Object.raiseWithData (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:781:17)\n    at Object.raise (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:742:17)\n    at Object.checkDuplicateExports (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:13954:12)\n    at Object.checkExport (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:13878:14)\n    at Object.parseExport (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:13705:12)\n    at Object.parseStatementContent (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:12686:27)\n    at Object.parseStatement (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:12580:17)\n    at Object.parseBlockOrModuleBlockBody (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:13169:25)\n    at Object.parseBlockBody (/mnt/c/Users/jay27/OneDrive/Desktop/AppAcademy/AAClasswork/W10D3/TODOs/node_modules/@babel/parser/lib/index.js:13160:10)");
+
+/***/ }),
+
+/***/ "./frontend/components/todos/todo_list_container.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/todos/todo_list_container.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _todo_list__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo_list */ "./frontend/components/todos/todo_list.jsx");
+/* harmony import */ var _todo_list__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_todo_list__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    todos: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__.default)(state)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    receiveTodo: function (_receiveTodo) {
+      function receiveTodo(_x) {
+        return _receiveTodo.apply(this, arguments);
+      }
+
+      receiveTodo.toString = function () {
+        return _receiveTodo.toString();
+      };
+
+      return receiveTodo;
+    }(function (todo) {
+      return dispatch(receiveTodo(todo));
+    })
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)((_todo_list__WEBPACK_IMPORTED_MODULE_2___default())));
 
 /***/ }),
 
