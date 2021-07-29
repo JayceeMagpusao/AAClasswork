@@ -329,24 +329,24 @@ var TodoList = /*#__PURE__*/function (_React$Component) {
   _createClass(TodoList, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          todos = _this$props.todos,
-          receiveTodo = _this$props.receiveTodo; //const items = [];
+      // const {todos, receiveTodo} = this.props;
+      //const items = [];
       // todos.forEach(todo =>{
       //     console.log(todo);
       // })
       // console.log(items);
-
-      var items = todos.map(function (todo) {
-        return todo = todo //console.log(todo);
+      var items = this.props.todos.map(function (todo) {
+        return todo = {
+          todo: todo
+        } //console.log(todo);
         // 
         //console.log(todo);
         ;
-      });
-      console.log(items);
+      }); // console.log(items);
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "todo-list"
-      }));
+      }, items));
     }
   }]);
 
